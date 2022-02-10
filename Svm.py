@@ -1,6 +1,12 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[2]:
+
+
 import pandas as pd
-# Import Decision Tree Classifier
-from sklearn.tree import DecisionTreeClassifier
+# Import svm classifier
+from sklearn import svm
 # Import train_test_split function
 from sklearn.model_selection import train_test_split
 #Import scikit learn metrics module for accuracy calculation
@@ -13,9 +19,9 @@ y = df['Outcome'] #assigning dependent variable to y
 #splitting data as test data and train data
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size =0.25,random_state=0)
 
-# Create Decision Tree classifer object
-clf = DecisionTreeClassifier()
-# Train Decision Tree Classifer
+# Create svm classifier object
+clf = svm.SVC(kernel='linear')
+# Train the model
 clf = clf.fit(X_train,y_train)
 #Predict the response for test dataset
 y_pred = clf.predict(X_test)
@@ -37,6 +43,7 @@ plt.xlabel('Predicted')
 print("Accuracy:", metrics.accuracy_score(y_test,y_pred))
 
 
+# In[ ]:
 
 
 
